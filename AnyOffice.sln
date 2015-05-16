@@ -3,8 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "E - Presentation", "E - Presentation", "{2D2CA093-ED1A-43F4-A449-6097DCA641AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Web", "AnyOffice.Web\AnyOffice.Web.csproj", "{E2403028-35D4-46C0-89CA-83CB6AF885EC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2403028-35D4-46C0-89CA-83CB6AF885EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2403028-35D4-46C0-89CA-83CB6AF885EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2403028-35D4-46C0-89CA-83CB6AF885EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2403028-35D4-46C0-89CA-83CB6AF885EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2403028-35D4-46C0-89CA-83CB6AF885EC} = {2D2CA093-ED1A-43F4-A449-6097DCA641AB}
 	EndGlobalSection
 EndGlobal
