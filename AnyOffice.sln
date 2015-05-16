@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "E - Presentation", "E - Presentation", "{2D2CA093-ED1A-43F4-A449-6097DCA641AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "D - Presentation", "D - Presentation", "{2D2CA093-ED1A-43F4-A449-6097DCA641AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Web", "AnyOffice.Web\AnyOffice.Web.csproj", "{E2403028-35D4-46C0-89CA-83CB6AF885EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "A - Component", "A - Component", "{8193D9CD-F644-4BD8-AC15-F78012E0167C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "B - Core", "B - Core", "{B1E3877A-CB7C-4781-8DC3-396E94A13C62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C - Site", "C - Site", "{97F21E28-FEE7-4464-A605-41D101D7F41C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
