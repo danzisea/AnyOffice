@@ -59,9 +59,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -513,9 +510,21 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnyOffice.Core.Data\AnyOffice.Core.Data.csproj">
-      <Project>{B22752C9-B571-48E6-8179-F2CC3693ADD8}</Project>
-      <Name>AnyOffice.Core.Data</Name>
+    <ProjectReference Include="..\AnyOffice.Core.Models\AnyOffice.Core.Models.csproj">
+      <Project>{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1}</Project>
+      <Name>AnyOffice.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnyOffice.Core.Services\AnyOffice.Core.Services.csproj">
+      <Project>{E937FF33-46FF-45A3-AF10-945DC69AB01A}</Project>
+      <Name>AnyOffice.Core.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnyOffice.Site.DependencyModules\AnyOffice.Site.DependencyModules.csproj">
+      <Project>{44fca9da-ee11-4664-9cb4-b98398f7ade0}</Project>
+      <Name>AnyOffice.Site.DependencyModules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quaider.Component\Quaider.Component.csproj">
+      <Project>{AF37DFD7-5D83-442E-B101-5C1BBD2093A8}</Project>
+      <Name>Quaider.Component</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

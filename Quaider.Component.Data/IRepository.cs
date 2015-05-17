@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Quaider.Component.Data
 {
-    public interface IRepository<TEntity, in TKey> where TEntity : EntityBase<TKey>
+    public interface IRepository<TEntity, in TKey> : ISql where TEntity : EntityBase<TKey>
     {
         #region 属性
 

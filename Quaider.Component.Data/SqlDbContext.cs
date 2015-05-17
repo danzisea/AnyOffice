@@ -10,12 +10,9 @@ namespace Quaider.Component.Data
     /// <summary>
     /// 提供执行Sql语句和存储过程的DbContext
     /// </summary>
-    public abstract class SqlDbContext : DbContext
+    public abstract class SqlDbContext : DbContext, ISql
     {
         #region ctor
-
-        protected SqlDbContext()
-            : base("Default") { }
 
         protected SqlDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString) { }
@@ -59,13 +56,13 @@ namespace Quaider.Component.Data
         }
 
         /// <summary>
-        /// 执行存储过程
+        /// 执行存储过程，且返回实体列表
         /// </summary>
-        /// <typeparam name="TEntity">实体</typeparam>
+        /// <typeparam name="TEntity">实体类型</typeparam>
         /// <typeparam name="TKey">主键</typeparam>
-        /// <param name="commandText">存储过程</param>
+        /// <param name="commandText">存储过程名称</param>
         /// <param name="parameters">参数</param>
-        /// <returns>返回实例集合</returns>
+        /// <returns>实体列表</returns>
         public virtual IList<TEntity> ExecuteStoredProcedureList<TEntity, TKey>(string commandText, params object[] parameters)
             where TEntity : EntityBase<TKey>
         {
@@ -109,12 +106,15 @@ namespace Quaider.Component.Data
         }
 
         /// <summary>
-        /// 执行一段Sql查询
+        /// 执行一段查询命令
         /// </summary>
-        /// <typeparam name="TElement">要返回的元素</typeparam>
-        /// <param name="sql">sql语句</param>
+        /// <typeparam name="TElement">返回的类型</typeparam>
+        /// <param name="sql">sql查询命令</param>
+        /// <example>
+        /// SELECT idCustomer,Name FROM dbo.[Customers] WHERE idCustomer > {0}
+        /// </example>
         /// <param name="parameters">参数</param>
-        /// <returns></returns>
+        /// <returns>查询结果</returns>
         public virtual IEnumerable<TElement> SqlQuery<TElement>(string sql, params object[] parameters)
         {
             return base.Database.SqlQuery<TElement>(sql, parameters);
@@ -124,6 +124,9 @@ namespace Quaider.Component.Data
         /// 执行一个命令
         /// </summary>
         /// <param name="commandText">命令语句</param>
+        /// <example>
+        /// Update dbo.[Customers] Set Name = {1} WHERE idCustomer = {0}
+        /// </example>
         /// <param name="parameters">参数</param>
         /// <returns>返回受影响的行数</returns>
         public virtual int ExecuteSqlCommand(string commandText, params object[] parameters)

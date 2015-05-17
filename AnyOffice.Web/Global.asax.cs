@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using AnyOffice.Core.Data.Migrations;
+using AnyOffice.Site.DependencyModules;
 
 namespace AnyOffice.Web
 {
@@ -24,8 +24,8 @@ namespace AnyOffice.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //数据库初始化
-            DatabaseInitializer.Initialize();
+            //注册各种依赖项
+            Startup.RegisterDependency();
         }
     }
 }

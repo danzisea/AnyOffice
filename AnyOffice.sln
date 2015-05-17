@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Core.Models", "An
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Core.Data", "AnyOffice.Core.Data\AnyOffice.Core.Data.csproj", "{B22752C9-B571-48E6-8179-F2CC3693ADD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Site.DependencyModules", "AnyOffice.Site.DependencyModules\AnyOffice.Site.DependencyModules.csproj", "{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Core.Services", "AnyOffice.Core.Services\AnyOffice.Core.Services.csproj", "{E937FF33-46FF-45A3-AF10-945DC69AB01A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +69,7 @@ Global
 		{023F8F68-970C-48A6-A9F4-20F39DFAAE35} = {8193D9CD-F644-4BD8-AC15-F78012E0167C}
 		{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
 		{B22752C9-B571-48E6-8179-F2CC3693ADD8} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
+		{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0} = {97F21E28-FEE7-4464-A605-41D101D7F41C}
+		{E937FF33-46FF-45A3-AF10-945DC69AB01A} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
 	EndGlobalSection
 EndGlobal

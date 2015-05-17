@@ -8,8 +8,10 @@ namespace AnyOffice.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+        public HomeController()
+        {
+            
+        }
 
         public ActionResult Index()
         {
