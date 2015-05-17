@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quaider.Component", "Quaide
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quaider.Component.Data", "Quaider.Component.Data\Quaider.Component.Data.csproj", "{023F8F68-970C-48A6-A9F4-20F39DFAAE35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Core.Models", "AnyOffice.Core.Models\AnyOffice.Core.Models.csproj", "{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Core.Data", "AnyOffice.Core.Data\AnyOffice.Core.Data.csproj", "{B22752C9-B571-48E6-8179-F2CC3693ADD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{023F8F68-970C-48A6-A9F4-20F39DFAAE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{023F8F68-970C-48A6-A9F4-20F39DFAAE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{023F8F68-970C-48A6-A9F4-20F39DFAAE35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22752C9-B571-48E6-8179-F2CC3693ADD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +55,7 @@ Global
 		{E2403028-35D4-46C0-89CA-83CB6AF885EC} = {2D2CA093-ED1A-43F4-A449-6097DCA641AB}
 		{AF37DFD7-5D83-442E-B101-5C1BBD2093A8} = {8193D9CD-F644-4BD8-AC15-F78012E0167C}
 		{023F8F68-970C-48A6-A9F4-20F39DFAAE35} = {8193D9CD-F644-4BD8-AC15-F78012E0167C}
+		{FC8303D6-E0A1-4D52-ADDE-B5B6F37342F1} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
+		{B22752C9-B571-48E6-8179-F2CC3693ADD8} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
 	EndGlobalSection
 EndGlobal

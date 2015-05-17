@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AnyOffice.Core.Data.Migrations;
 
 namespace AnyOffice.Web
 {
@@ -22,6 +23,9 @@ namespace AnyOffice.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //数据库初始化
+            DatabaseInitializer.Initialize();
         }
     }
 }
