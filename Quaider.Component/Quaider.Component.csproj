@@ -33,21 +33,28 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Html\DataGridExtensions.cs" />
+    <Compile Include="UI\DataGrid\ColumnBuilder.cs" />
+    <Compile Include="UI\DataGrid\DataGrid.cs" />
+    <Compile Include="UI\DataGrid\GridColumn.cs" />
+    <Compile Include="UI\DataGrid\IGridColumn.cs" />
+    <Compile Include="UI\DataGrid\Syntax.cs" />
     <None Include="Description.md" />
     <Compile Include="CombHelper.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Jquery\" />
     <Folder Include="Log\" />
     <Folder Include="MVC\" />
   </ItemGroup>

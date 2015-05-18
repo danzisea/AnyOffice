@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Quaider.Component.Html
+@{
     ViewBag.Title = "Index";
 }
 
@@ -6,3 +7,7 @@
 <div class="easyui-panel" data-options="title:'测试库'">
     测试库引用是否正确
 </div>
+@Html.Grid("myGrid").Sort("CreateTime").OrderBy().Columns(c =>
+{
+    c.Field("FullName").Title("姓名");
+}).Url("/Home/Test")

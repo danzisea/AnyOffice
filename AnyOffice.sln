@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Site.DependencyMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Core.Services", "AnyOffice.Core.Services\AnyOffice.Core.Services.csproj", "{E937FF33-46FF-45A3-AF10-945DC69AB01A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Site.ViewModels", "AnyOffice.Site.ViewModels\AnyOffice.Site.ViewModels.csproj", "{C5D1E4EC-F8BB-4662-9E1E-AD8F365EB608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyOffice.Site.Framework", "AnyOffice.Site.Framework\AnyOffice.Site.Framework.csproj", "{3E9AC691-21B7-4BDE-91F0-57B2E73AD3F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,14 @@ Global
 		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E937FF33-46FF-45A3-AF10-945DC69AB01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D1E4EC-F8BB-4662-9E1E-AD8F365EB608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D1E4EC-F8BB-4662-9E1E-AD8F365EB608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D1E4EC-F8BB-4662-9E1E-AD8F365EB608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D1E4EC-F8BB-4662-9E1E-AD8F365EB608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9AC691-21B7-4BDE-91F0-57B2E73AD3F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9AC691-21B7-4BDE-91F0-57B2E73AD3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9AC691-21B7-4BDE-91F0-57B2E73AD3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9AC691-21B7-4BDE-91F0-57B2E73AD3F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +83,7 @@ Global
 		{B22752C9-B571-48E6-8179-F2CC3693ADD8} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
 		{44FCA9DA-EE11-4664-9CB4-B98398F7ADE0} = {97F21E28-FEE7-4464-A605-41D101D7F41C}
 		{E937FF33-46FF-45A3-AF10-945DC69AB01A} = {B1E3877A-CB7C-4781-8DC3-396E94A13C62}
+		{C5D1E4EC-F8BB-4662-9E1E-AD8F365EB608} = {97F21E28-FEE7-4464-A605-41D101D7F41C}
+		{3E9AC691-21B7-4BDE-91F0-57B2E73AD3F7} = {97F21E28-FEE7-4464-A605-41D101D7F41C}
 	EndGlobalSection
 EndGlobal
