@@ -1,6 +1,8 @@
-﻿namespace Quaider.Component.UI.DataGrid
+﻿using System.Collections.Generic;
+
+namespace Quaider.Component.UI.DataGrid
 {
-    public class ColumnBuilder
+    public class ColumnBuilder : List<GridColumn>
     {
         /// <summary>
         /// 列字段名称

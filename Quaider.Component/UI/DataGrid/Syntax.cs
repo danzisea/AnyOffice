@@ -13,7 +13,7 @@ namespace Quaider.Component.UI.DataGrid
         /// </summary>
         /// <param name="fields"></param>
         /// <returns></returns>
-        IGrid Sort(params string[] fields);
+        IGrid Sort(string fields);
 
         /// <summary>
         /// 升序排序
@@ -40,6 +40,13 @@ namespace Quaider.Component.UI.DataGrid
         /// <param name="uri">url</param>
         /// <returns></returns>
         IGrid Url(string uri);
+
+        /// <summary>
+        /// 指定DataGrid额外属性
+        /// </summary>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        IGrid Extends(object attributes);
 
         /// <summary>
         /// 定义DataGrid列属性

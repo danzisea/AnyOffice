@@ -11,5 +11,12 @@
         /// <param name="title"></param>
         /// <returns></returns>
         IGridColumn Title(string title);
+
+        /// <summary>
+        /// 为列指定额外属性
+        /// </summary>
+        /// <param name="attributes">属性对象</param>
+        /// <returns></returns>
+        IGridColumn Extends(object attributes);
     }
 }

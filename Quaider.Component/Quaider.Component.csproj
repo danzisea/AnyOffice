@@ -42,10 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Html\DataGridExtensions.cs" />
+    <Compile Include="SortDirection.cs" />
     <Compile Include="UI\DataGrid\ColumnBuilder.cs" />
     <Compile Include="UI\DataGrid\DataGrid.cs" />
     <Compile Include="UI\DataGrid\GridColumn.cs" />
+    <Compile Include="UI\DataGrid\GridModel.cs" />
+    <Compile Include="UI\DataGrid\GridSortOptions.cs" />
     <Compile Include="UI\DataGrid\IGridColumn.cs" />
+    <Compile Include="UI\DataGrid\IGridModel.cs" />
     <Compile Include="UI\DataGrid\Syntax.cs" />
     <None Include="Description.md" />
     <Compile Include="CombHelper.cs" />

@@ -9,5 +9,5 @@
 </div>
 @Html.Grid("myGrid").Sort("CreateTime").OrderBy().Columns(c =>
 {
-    c.Field("FullName").Title("姓名");
+    c.Field("FullName").Title("姓名").Extends(new { A = 1, B = 2 });
 }).Url("/Home/Test")
