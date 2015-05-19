@@ -11,7 +11,9 @@ namespace Quaider.Component.UI.DataGrid
         /// <returns></returns>
         public IGridColumn Field(string fieldName)
         {
-            return new GridColumn();
+            var column = new GridColumn(fieldName);
+            Add(column);
+            return column;
         }
     }
 }

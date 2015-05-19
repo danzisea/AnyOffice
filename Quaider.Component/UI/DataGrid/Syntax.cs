@@ -11,9 +11,9 @@ namespace Quaider.Component.UI.DataGrid
         /// <summary>
         /// 定义哪些列可以进行排序。
         /// </summary>
-        /// <param name="fields"></param>
+        /// <param name="field"></param>
         /// <returns></returns>
-        IGrid Sort(string fields);
+        IGrid Sort(string field);
 
         /// <summary>
         /// 升序排序
@@ -53,6 +53,41 @@ namespace Quaider.Component.UI.DataGrid
         /// </summary>
         /// <returns></returns>
         IGrid Columns(Action<ColumnBuilder> columnBuilder);
+
+        /// <summary>
+        /// 设置宽度
+        /// </summary>
+        /// <param name="width"></param>
+        /// <returns></returns>
+        IGrid Width(int width);
+
+        /// <summary>
+        /// 设置高度
+        /// </summary>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        IGrid Height(int height);
+
+        /// <summary>
+        /// 设置宽度(百分比)
+        /// </summary>
+        /// <param name="width">百分比</param>
+        /// <returns></returns>
+        IGrid Width(string width);
+
+        /// <summary>
+        /// 设置高度(百分比)
+        /// </summary>
+        /// <param name="height">百分比</param>
+        /// <returns></returns>
+        IGrid Height(string height);
+
+        /// <summary>
+        /// 是否排序
+        /// </summary>
+        /// <param name="isPaged"></param>
+        /// <returns></returns>
+        IGrid Paged(bool isPaged = true);
     }
 
     /// <summary>

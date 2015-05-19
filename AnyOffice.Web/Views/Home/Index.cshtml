@@ -2,12 +2,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-<div class="easyui-panel" data-options="title:'测试库'">
-    测试库引用是否正确
-</div>
-@Html.Grid("myGrid").Sort("CreateTime").OrderBy().Columns(c =>
-{
-    c.Field("FullName").Title("姓名").Extends(new { A = 1, B = 2 });
-}).Url("/Home/Test")
+@(Html.Grid("myGrid").Paged()
+    .Sort("Id").Width(600).Height(310)
+    .OrderBy()
+    .Url("/Home/TestData")
+    .Columns(c =>
+    {
+        c.Field("Id").Title("标识符").Width(100).Sortable();
+        c.Field("FullName").Title("姓名").Width(200).Sortable();
+        c.Field("UserName").Title("用户名").Width(200).Sortable();
+    })
+)

@@ -9,6 +9,11 @@ namespace Quaider.Component.UI.DataGrid
     {
         private readonly IGridModel _gridModel = new GridModel();
 
+        public DataGrid()
+        {
+            InitDefault();
+        }
+
         public override string ToString()
         {
             return ToHtmlString();
@@ -17,29 +22,27 @@ namespace Quaider.Component.UI.DataGrid
         public string ToHtmlString()
         {
             var writer = new StringWriter();
-            writer.Write("test");
+            _gridModel.Renderer.Render(_gridModel, writer, null);
             return writer.ToString();
         }
 
+        #region IGrid
+
         public IGrid Sort(string field)
         {
-            _gridModel.Sort = new GridSortOptions { Column = field, Direction = SortDirection.Ascending };
+            SetKeyValue("sortName", field);
             return this;
         }
 
         public IGrid Toolbar(string toolbar)
         {
-            if (_gridModel.Attributes.ContainsKey("toolbar"))
-                _gridModel.Attributes.Remove("toolbar");
-            _gridModel.Attributes.Add("toolbar", toolbar);
+            SetKeyValue("toolbar", toolbar);
             return this;
         }
 
         public IGrid Url(string uri)
         {
-            if (_gridModel.Attributes.ContainsKey("url"))
-                _gridModel.Attributes.Remove("url");
-            _gridModel.Attributes.Add("url", uri);
+            SetKeyValue("url", uri);
             return this;
         }
 
@@ -58,35 +61,84 @@ namespace Quaider.Component.UI.DataGrid
 
         public IGrid OrderBy()
         {
-            if (_gridModel.Sort == null)
-                throw new InvalidOperationException("必须先指定排序字段.");
-
-            _gridModel.Sort.Direction = SortDirection.Ascending;
-
+            EnsureSortNameRequired();
+            SetKeyValue("sortOrder", "asc");
             return this;
         }
 
         public IGrid OrderByDesc()
         {
-            if (_gridModel.Sort == null)
-                throw new InvalidOperationException("必须先指定排序字段.");
+            EnsureSortNameRequired();
+            SetKeyValue("sortOrder", "desc");
+            return this;
+        }
 
-            _gridModel.Sort.Direction = SortDirection.Descending;
+        public IGrid Width(int width)
+        {
+            SetKeyValue("width", width);
+            return this;
+        }
 
+        public IGrid Height(int height)
+        {
+            SetKeyValue("height", height);
+            return this;
+        }
+
+        public IGrid Width(string width)
+        {
+            SetKeyValue("width", width);
+            return this;
+        }
+
+        public IGrid Height(string height)
+        {
+            SetKeyValue("height", height);
+            return this;
+        }
+
+        public IGrid Paged(bool isPaged = true)
+        {
+            SetKeyValue("pagination", true);
             return this;
         }
 
         public IGrid Extends(object attributes)
         {
             if (attributes == null) return this;
-            IDictionary<string,object> attrs = HtmlHelper.AnonymousObjectToHtmlAttributes(attributes);
+            IDictionary<string, object> attrs = HtmlHelper.AnonymousObjectToHtmlAttributes(attributes);
             foreach (var attr in attrs)
             {
-                if (_gridModel.Attributes.ContainsKey(attr.Key))
-                    _gridModel.Attributes.Remove(attr.Key);
-                _gridModel.Attributes.Add(attr.Key, attr.Value);
+                SetKeyValue(attr.Key, attr.Value);
             }
             return this;
+        }
+        
+        #endregion
+
+        void EnsureSortNameRequired()
+        {
+            if (!_gridModel.Attributes.ContainsKey("sortName"))
+                throw new InvalidOperationException("必须先指定排序字段.");
+        }
+
+        void SetKeyValue(string key, object value)
+        {
+            if (_gridModel.Attributes.ContainsKey(key))
+                _gridModel.Attributes[key] = value;
+            else
+                _gridModel.Attributes.Add(key, value);
+        }
+
+        /// <summary>
+        /// 设置默认的data-options
+        /// </summary>
+        private void InitDefault()
+        {
+            SetKeyValue("striped", true);
+            SetKeyValue("pagination", true);
+            SetKeyValue("rownumbers", true);
+            SetKeyValue("singleSelect", true);
         }
     }
 }

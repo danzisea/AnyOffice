@@ -48,9 +48,12 @@
     <Compile Include="UI\DataGrid\GridColumn.cs" />
     <Compile Include="UI\DataGrid\GridModel.cs" />
     <Compile Include="UI\DataGrid\GridSortOptions.cs" />
+    <Compile Include="UI\DataGrid\HtmlTableGridRenderer.cs" />
     <Compile Include="UI\DataGrid\IGridColumn.cs" />
     <Compile Include="UI\DataGrid\IGridModel.cs" />
+    <Compile Include="UI\DataGrid\IGridRenderer.cs" />
     <Compile Include="UI\DataGrid\Syntax.cs" />
+    <Compile Include="UI\EasyUiHelper.cs" />
     <None Include="Description.md" />
     <Compile Include="CombHelper.cs" />
     <Compile Include="EntityBase.cs" />
