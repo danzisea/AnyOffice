@@ -9,7 +9,7 @@ namespace AnyOffice.Site.DependencyModules
     /// <summary>
     /// 依赖注册类
     /// </summary>
-    public class Startup 
+    public class Startup
     {
         public static void RegisterDependency()
         {
@@ -18,7 +18,7 @@ namespace AnyOffice.Site.DependencyModules
             //控制器注入RegisterControllers() 参数必须是包含了控制器所在的程序集
             var controllerAss = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(f => f.FullName.StartsWith("AnyOffice"))
-                .Where(f => f.ExportedTypes.Any(c => typeof (Controller).IsAssignableFrom(c) && c.IsClass))
+                .Where(f => f.ExportedTypes.Any(c => typeof(Controller).IsAssignableFrom(c) && c.IsClass))
                 .ToArray();
 
             //特别注意：RegisterControllers（）方法必须在 builder.Build() 方法之前调用，否则经测试无效...
