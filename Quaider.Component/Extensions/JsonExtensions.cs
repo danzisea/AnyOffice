@@ -6,7 +6,7 @@ using Newtonsoft.Json.Serialization;
 namespace Quaider.Component.Extensions
 {
     /// <summary>
-    /// Json操作类
+    /// Json操作类 基于Json.net
     /// </summary>
     public static class JsonExtensions
     {
@@ -14,11 +14,23 @@ namespace Quaider.Component.Extensions
         /// 将object序列化成Json字符串
         /// </summary>
         /// <param name="source">object</param>
-        /// <param name="camel">属性是否启用骆驼写法</param>
+        /// <param name="camel">默认否启用骆驼写法</param>
         /// <returns>Json字符串</returns>
         public static string ToJson(this object source, bool camel = true)
         {
             return new JsonOperation(camel).Serialize(source);
+        }
+
+        /// <summary>
+        /// 反序列化Json字符串为指定类型对象
+        /// </summary>
+        /// <typeparam name="T">反序列化到的对象的类型</typeparam>
+        /// <param name="source">Json字符串</param>
+        /// <param name="camel">默认否启用骆驼写法</param>
+        /// <returns></returns>
+        public static T ToObject<T>(this string source, bool camel = true) where T : class,new()
+        {
+            return new JsonOperation(camel).Deserialize<T>(source);
         }
     }
 
@@ -66,6 +78,20 @@ namespace Quaider.Component.Extensions
             }
 
             return writer.ToString();
+        }
+
+        /// <summary>
+        /// 反序列化Json字符串
+        /// </summary>
+        /// <param name="json">Json字符串</param>
+        /// <returns></returns>
+        public T Deserialize<T>(string json) where T : class,new()
+        {
+            JsonSerializer serializer = JsonSerializer.Create(_settings);
+            using (var reader = new JsonTextReader(new StringReader(json)))
+            {
+                return serializer.Deserialize<T>(reader);
+            }
         }
     }
 }
