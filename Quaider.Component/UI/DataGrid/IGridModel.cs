@@ -2,10 +2,8 @@
 
 namespace Quaider.Component.UI.DataGrid
 {
-    public interface IGridModel
+    public interface IGridModel : IComponentModel<object>
     {
-        IGridRenderer Renderer { get; set; }
         IList<GridColumn> Columns { get; }
-        IDictionary<string, object> Attributes { get; set; }
     }
 }

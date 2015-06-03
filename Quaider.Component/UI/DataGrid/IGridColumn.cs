@@ -1,7 +1,7 @@
 ﻿namespace Quaider.Component.UI.DataGrid
 {
     /// <summary>
-    /// DataGrid 链式接口
+    /// DataGrid 列定义链式接口
     /// </summary>
     public interface IGridColumn
     {
@@ -48,10 +48,17 @@
         IGridColumn Checkbox(bool showCheckbox = true);
 
         /// <summary>
+        /// 是否冻结列
+        /// </summary>
+        /// <param name="isFrozen"></param>
+        /// <returns></returns>
+        IGridColumn Frozen(bool isFrozen = false);
+
+        /// <summary>
         /// 为列指定额外属性
         /// </summary>
         /// <param name="attributes">属性对象</param>
         /// <returns></returns>
-        IGridColumn Extends(object attributes);
+        IGridColumn ExtraOptions(object attributes);
     }
 }

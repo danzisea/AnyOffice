@@ -1,86 +1,76 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.IO;
 
 namespace Quaider.Component.UI.DataGrid
 {
-    public class GridColumn : IGridColumn
+    public class GridColumn : ComponentBase<object>, IGridColumn
     {
-        private readonly IDictionary<string, object> _attributes;
-
-        public GridColumn(string field)
+        public GridColumn(string fieldName)
+            : base(new ComponentModel<object>())
         {
-            _attributes = new Dictionary<string, object>();
-            SetKeyValue("field", field);
+            ComponentModel.Renderer = new GridColumnRender();
+            ComponentModel.DataOptions.SetKeyValue("field", fieldName);
         }
 
-        public string Title { get; set; }
+        public bool IsFrozen { get; set; }
 
         #region IGridColumn
 
         IGridColumn IGridColumn.Title(string title)
         {
-            Title = title;
-            return this;
-        }
-
-        IGridColumn IGridColumn.Extends(object attributes)
-        {
-            if (attributes == null) return this;
-            IDictionary<string, object> attrs = HtmlHelper.AnonymousObjectToHtmlAttributes(attributes);
-            foreach (var attr in attrs)
-            {
-                SetKeyValue(attr.Key, attr.Value);
-            }
+            var render = ComponentModel.Renderer as GridColumnRender;
+            render.Title = title;
             return this;
         }
 
         IGridColumn IGridColumn.Width(int width)
         {
-            SetKeyValue("width", width);
+            ComponentModel.DataOptions.SetKeyValue("width", width);
             return this;
         }
 
         IGridColumn IGridColumn.Width(string width)
         {
-            SetKeyValue("width", width);
+            ComponentModel.DataOptions.SetKeyValue("width", width);
             return this;
         }
 
         IGridColumn IGridColumn.Sortable(bool isSortable)
         {
-            SetKeyValue("sortable", isSortable);
+            ComponentModel.DataOptions.SetKeyValue("sortable", isSortable);
             return this;
         }
 
         IGridColumn IGridColumn.Visible(bool visible)
         {
-            SetKeyValue("hidden", visible);
+            ComponentModel.DataOptions.SetKeyValue("hidden", visible);
             return this;
         }
 
         IGridColumn IGridColumn.Checkbox(bool showCheckbox)
         {
-            SetKeyValue("checkbox", showCheckbox);
+            ComponentModel.DataOptions.SetKeyValue("checkbox", showCheckbox);
             return this;
+        }
+
+        IGridColumn IGridColumn.Frozen(bool isFrozen)
+        {
+            IsFrozen = isFrozen;
+            return this;
+        }
+
+        IGridColumn IGridColumn.ExtraOptions(object attributes)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
 
-        /// <summary>
-        /// 获取列的data-options="..."
-        /// </summary>
-        /// <returns></returns>
-        public string GetColumnOptions()
+        public override string ToHtmlString()
         {
-            return EasyUiHelper.BuildOptions(_attributes);
-        }
+            var writer = new StringWriter();
+            ComponentModel.Renderer.Render(ComponentModel, writer, null);
 
-        void SetKeyValue(string key, object value)
-        {
-            if (_attributes.ContainsKey(key))
-                _attributes[key] = value;
-            else
-                _attributes.Add(key, value);
+            return writer.ToString();
         }
     }
 }

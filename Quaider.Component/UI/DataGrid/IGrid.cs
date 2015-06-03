@@ -4,12 +4,26 @@ using System.Web;
 namespace Quaider.Component.UI.DataGrid
 {
     /// <summary>
-    /// EasyUi DataGrid属性
+    /// EasyUi DataGrid组件接口
     /// </summary>
     public interface IGrid : IHtmlString
     {
         /// <summary>
-        /// 定义哪些列可以进行排序。
+        /// 添加CSS类
+        /// </summary>
+        /// <param name="classes"></param>
+        /// <returns></returns>
+        IGrid AddClass(params string[] classes);
+
+        /// <summary>
+        /// 添加CSS类
+        /// </summary>
+        /// <param name="classes">空格分开的类名字符串</param>
+        /// <returns></returns>
+        IGrid AddClass(string classes);
+
+        /// <summary>
+        /// 定义列可以进行排序。
         /// </summary>
         /// <param name="field"></param>
         /// <returns></returns>
@@ -88,14 +102,5 @@ namespace Quaider.Component.UI.DataGrid
         /// <param name="isPaged"></param>
         /// <returns></returns>
         IGrid Paged(bool isPaged = true);
-    }
-
-    /// <summary>
-    /// EasyUi列属性
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IGridWithOptions : IHtmlString
-    {
-
     }
 }

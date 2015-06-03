@@ -2,7 +2,7 @@
 
 namespace Quaider.Component.UI.DataGrid
 {
-    public class GridModel : IGridModel
+    public class GridModel : ComponentModel<object>, IGridModel
     {
         private readonly ColumnBuilder _columnBuilder;
 
@@ -10,18 +10,11 @@ namespace Quaider.Component.UI.DataGrid
         {
             _columnBuilder = new ColumnBuilder();
             Renderer = new HtmlTableGridRenderer();
-            Attributes = new Dictionary<string, object>();
         }
 
         public IList<GridColumn> Columns
         {
             get { return _columnBuilder; }
         }
-
-        public IDictionary<string, object> Attributes { get; set; }
-
-        public GridSortOptions SortOptions { get; set; }
-
-        public IGridRenderer Renderer { get; set; }
     }
 }

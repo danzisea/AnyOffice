@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
-@(Html.Grid("myGrid").Paged()
+@(
+ Html.EasyUi().Grid("myGrid").Paged()
     .Sort("Id").Width(600).Height(310)
     .OrderBy()
     .Url("/Home/TestData")

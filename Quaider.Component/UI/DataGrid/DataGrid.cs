@@ -1,52 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Web.Mvc;
+﻿using System.IO;
 
 namespace Quaider.Component.UI.DataGrid
 {
-    public class DataGrid : IGrid
+    public class DataGrid : ComponentBase<object>, IGrid
     {
-        private readonly IGridModel _gridModel = new GridModel();
+        private readonly IGridModel _gridModel;
 
-        public DataGrid()
+        public DataGrid(string id)
+            : base(new GridModel())
         {
+            ComponentModel.Id = id;
+            _gridModel = ComponentModel as IGridModel;
             InitDefault();
-        }
-
-        public override string ToString()
-        {
-            return ToHtmlString();
-        }
-
-        public string ToHtmlString()
-        {
-            var writer = new StringWriter();
-            _gridModel.Renderer.Render(_gridModel, writer, null);
-            return writer.ToString();
         }
 
         #region IGrid
 
-        public IGrid Sort(string field)
+        IGrid IGrid.AddClass(params string[] classes)
         {
-            SetKeyValue("sortName", field);
+            base.AddClass(classes);
             return this;
         }
 
-        public IGrid Toolbar(string toolbar)
+        IGrid IGrid.AddClass(string classes)
         {
-            SetKeyValue("toolbar", toolbar);
+            base.AddClass(classes);
             return this;
         }
 
-        public IGrid Url(string uri)
+        IGrid IGrid.Sort(string field)
         {
-            SetKeyValue("url", uri);
+            _gridModel.DataOptions.SetKeyValue("sortName", field);
             return this;
         }
 
-        public IGrid Columns(Action<ColumnBuilder> columnBuilder)
+        IGrid IGrid.OrderBy()
+        {
+            _gridModel.DataOptions.SetKeyValue("sortOrder", "asc");
+            return this;
+        }
+
+        IGrid IGrid.OrderByDesc()
+        {
+            _gridModel.DataOptions.SetKeyValue("sortOrder", "desc");
+            return this;
+        }
+
+        IGrid IGrid.Toolbar(string toolbar)
+        {
+            _gridModel.DataOptions.SetKeyValue("toolbar", toolbar);
+            return this;
+        }
+
+        IGrid IGrid.Url(string uri)
+        {
+            _gridModel.DataOptions.SetKeyValue("url", uri);
+            return this;
+        }
+
+        IGrid IGrid.Columns(System.Action<ColumnBuilder> columnBuilder)
         {
             var builder = new ColumnBuilder();
             columnBuilder(builder);
@@ -59,86 +71,58 @@ namespace Quaider.Component.UI.DataGrid
             return this;
         }
 
-        public IGrid OrderBy()
+        IGrid IGrid.Width(int width)
         {
-            EnsureSortNameRequired();
-            SetKeyValue("sortOrder", "asc");
+            _gridModel.DataOptions.SetKeyValue("width", width);
             return this;
         }
 
-        public IGrid OrderByDesc()
+        IGrid IGrid.Height(int height)
         {
-            EnsureSortNameRequired();
-            SetKeyValue("sortOrder", "desc");
+            _gridModel.DataOptions.SetKeyValue("height", height);
             return this;
         }
 
-        public IGrid Width(int width)
+        IGrid IGrid.Width(string width)
         {
-            SetKeyValue("width", width);
+            _gridModel.DataOptions.SetKeyValue("height", width);
             return this;
         }
 
-        public IGrid Height(int height)
+        IGrid IGrid.Height(string height)
         {
-            SetKeyValue("height", height);
+            _gridModel.DataOptions.SetKeyValue("height", height);
             return this;
         }
 
-        public IGrid Width(string width)
+        IGrid IGrid.Paged(bool isPaged)
         {
-            SetKeyValue("width", width);
+            _gridModel.DataOptions.SetKeyValue("pagination", isPaged);
             return this;
         }
 
-        public IGrid Height(string height)
+        IGrid IGrid.Extends(object attributes)
         {
-            SetKeyValue("height", height);
             return this;
         }
 
-        public IGrid Paged(bool isPaged = true)
-        {
-            SetKeyValue("pagination", true);
-            return this;
-        }
-
-        public IGrid Extends(object attributes)
-        {
-            if (attributes == null) return this;
-            IDictionary<string, object> attrs = HtmlHelper.AnonymousObjectToHtmlAttributes(attributes);
-            foreach (var attr in attrs)
-            {
-                SetKeyValue(attr.Key, attr.Value);
-            }
-            return this;
-        }
-        
         #endregion
 
-        void EnsureSortNameRequired()
+        public override string ToHtmlString()
         {
-            if (!_gridModel.Attributes.ContainsKey("sortName"))
-                throw new InvalidOperationException("必须先指定排序字段.");
+            var writer = new StringWriter();
+            _gridModel.Renderer.Render(_gridModel, writer, null);
+            return writer.ToString();
         }
 
-        void SetKeyValue(string key, object value)
-        {
-            if (_gridModel.Attributes.ContainsKey(key))
-                _gridModel.Attributes[key] = value;
-            else
-                _gridModel.Attributes.Add(key, value);
-        }
-
-        /// <summary>
-        /// 设置默认的data-options
-        /// </summary>
         private void InitDefault()
         {
-            SetKeyValue("striped", true);
-            SetKeyValue("pagination", true);
-            SetKeyValue("rownumbers", true);
-            SetKeyValue("singleSelect", true);
+            AddClass("easyui-datagrid");
+
+            _gridModel.DataOptions
+                .SetKeyValue("striped", true)
+                .SetKeyValue("pagination", true)
+                .SetKeyValue("singleSelect", true);
         }
     }
 }
