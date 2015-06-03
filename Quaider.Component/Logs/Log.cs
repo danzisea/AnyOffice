@@ -304,19 +304,20 @@ namespace Quaider.Component.Logs
         /// </summary>
         private LogMessage CreateMessage()
         {
+            //TODO:消息需要再次详细初始化
             return new LogMessage
             {
                 Level = "",//Level.Description(),
                 TraceId = TraceId,
-                //Time = DateTime.Now.ToMillisecondString(),
+                Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 //TotalSeconds = GetTotalSeconds(),
                 Url = GetUrl(),
-                Application = "222222",
+                Application = GetApplication(),
                 Class = Class,
                 Method = Method,
                 Params = Params.ToString(),
-                Ip = "192.168.0.1",
-                Host = "localhost",
+                Ip = Net.Ip,
+                Host = Net.Host,
                 ThreadId = Thread.CurrentThread.ManagedThreadId.ToString(),
                 UserId = "",
                 Operator = "",
@@ -350,6 +351,18 @@ namespace Quaider.Component.Logs
         {
             action();
             Clear();
+        }
+
+        /// <summary>
+        /// 获取应用程序
+        /// </summary>
+        private string GetApplication()
+        {
+            //if (Application.IsEmpty())
+            //    return GetIdentity().Application;
+            //return Application;
+
+            return "to be continued";
         }
 
         /// <summary>
