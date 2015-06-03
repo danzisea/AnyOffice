@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AnyOffice.Site.DependencyModules;
+using Quaider.Component;
+using Quaider.Component.Logs;
 
 namespace AnyOffice.Web
 {
@@ -26,6 +28,30 @@ namespace AnyOffice.Web
 
             //注册各种依赖项
             Startup.RegisterDependency();
+        }
+
+        /// <summary>
+        /// 应用程序错误处理
+        /// </summary>
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var lastError = Server.GetLastError();
+            WriteLog(lastError);
+            //Response.Redirect( @"~/error" );
+            //Server.ClearError();
+        }
+
+        /// <summary>
+        /// 记录异常日志
+        /// </summary>
+        /// <param name="exception">异常</param>
+        private void WriteLog(Exception exception)
+        {
+            ILog log = Log.GetContextLog(this.GetType());
+            log.Application = "管理系统";
+            log.Caption.Append("管理后台Global全局异常捕获");
+            log.Exception = exception;
+            Warning.WriteLog(log, exception);
         }
     }
 }

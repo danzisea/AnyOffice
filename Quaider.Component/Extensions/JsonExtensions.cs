@@ -8,7 +8,7 @@ namespace Quaider.Component.Extensions
     /// <summary>
     /// Json操作类 基于Json.net
     /// </summary>
-    public static class JsonExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// 将object序列化成Json字符串

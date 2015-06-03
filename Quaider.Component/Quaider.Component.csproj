@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -45,10 +49,34 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Context\Context.cs" />
+    <Compile Include="Context\IContext.cs" />
+    <Compile Include="Context\WebContext.cs" />
+    <Compile Include="Context\WindowsContext.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\JsonExtensions.cs" />
     <Compile Include="Extensions\Mvc\SmartJsonResult.cs" />
     <Compile Include="Html\EasyUiExtensions.cs" />
-    <Compile Include="SortDirection.cs" />
+    <Compile Include="Logs\Formats\BusinessFormatter.cs" />
+    <Compile Include="Logs\Formats\CaptionFormatter.cs" />
+    <Compile Include="Logs\Formats\ClassFormatter.cs" />
+    <Compile Include="Logs\Formats\ContentFormatter.cs" />
+    <Compile Include="Logs\Formats\ErrorFormatter.cs" />
+    <Compile Include="Logs\Formats\FormatterBase.cs" />
+    <Compile Include="Logs\Formats\IpFormatter.cs" />
+    <Compile Include="Logs\Formats\LogMessageFormatter.cs" />
+    <Compile Include="Logs\Formats\SqlFormatter.cs" />
+    <Compile Include="Logs\Formats\SqlParamsFormatter.cs" />
+    <Compile Include="Logs\Formats\StackTraceFormatter.cs" />
+    <Compile Include="Logs\Formats\TitleFormatter.cs" />
+    <Compile Include="Logs\Formats\UrlFormatter.cs" />
+    <Compile Include="Logs\Formats\UserFormatter.cs" />
+    <Compile Include="Logs\ILog.cs" />
+    <Compile Include="Logs\Log.cs" />
+    <Compile Include="Logs\LogLevel.cs" />
+    <Compile Include="Logs\LogMessage.cs" />
+    <Compile Include="Net.cs" />
     <Compile Include="UI\ComponentBase.cs" />
     <Compile Include="UI\DataGrid\ColumnBuilder.cs" />
     <Compile Include="UI\DataGrid\DataGrid.cs" />
@@ -67,15 +95,15 @@
     <Compile Include="UI\IComponentRender.cs" />
     <Compile Include="UI\IEasyUiService.cs" />
     <Compile Include="UI\IOptions.cs" />
+    <Compile Include="Warning.cs" />
     <None Include="Description.md" />
     <Compile Include="CombHelper.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Logs\Description.md" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Log\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

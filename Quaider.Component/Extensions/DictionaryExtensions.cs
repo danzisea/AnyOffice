@@ -2,7 +2,7 @@
 
 namespace Quaider.Component.Extensions
 {
-    public static class DictionaryExtensions
+    public static partial class Extensions
     {
         public static IDictionary<TKey, TValue> SetKeyValue<TKey, TValue>(this IDictionary<TKey, TValue> source, TKey key, TValue value)
         {

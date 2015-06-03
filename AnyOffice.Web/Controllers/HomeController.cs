@@ -15,6 +15,8 @@ namespace AnyOffice.Web.Controllers
 
         public ActionResult Index()
         {
+            var i = 0;
+            var j = 5 / i;
             return View();
         }
 
