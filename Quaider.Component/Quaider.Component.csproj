@@ -50,7 +50,6 @@
     <Compile Include="Html\EasyUiExtensions.cs" />
     <Compile Include="SortDirection.cs" />
     <Compile Include="UI\ComponentBase.cs" />
-    <Compile Include="UI\ComponentDefaultRender.cs" />
     <Compile Include="UI\DataGrid\ColumnBuilder.cs" />
     <Compile Include="UI\DataGrid\DataGrid.cs" />
     <Compile Include="UI\DataGrid\GridColumn.cs" />
@@ -61,7 +60,7 @@
     <Compile Include="UI\DataGrid\IGridColumn.cs" />
     <Compile Include="UI\DataGrid\IGridModel.cs" />
     <Compile Include="UI\DefaultComponentRender.cs" />
-    <Compile Include="UI\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
     <Compile Include="UI\EasyUiHelper.cs" />
     <Compile Include="UI\EasyUiService.cs" />
     <Compile Include="UI\IComponentModel.cs" />

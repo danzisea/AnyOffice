@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Quaider.Component.UI
+namespace Quaider.Component.Extensions
 {
     public static class DictionaryExtensions
     {
